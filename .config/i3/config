@@ -192,8 +192,9 @@ mode "resize" {
 gaps inner 15
 gaps outer 0
 
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
+# for_window [class="^.*"] border pixel 1
+for_window [class=".*"] border pixel 0
+# new_window 1pixel
 
 bindsym $mod+r mode "resize"
 # bindmouse button1+$mod+Shift drag
