@@ -190,7 +190,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-gaps inner 16
+gaps inner 15
 gaps outer 0
 
 # for_window [class="^.*"] border pixel 1
