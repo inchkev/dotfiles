@@ -195,6 +195,7 @@ gaps outer 0
 
 # for_window [class="^.*"] border pixel 1
 for_window [class=".*"] border pixel 0
+hide_edge_borders both
 # new_window 1pixel
 
 bindsym $mod+r mode "resize"
@@ -203,7 +204,8 @@ bindsym $mod+r mode "resize"
 
 # Wallpaper background
 # exec --no-startup-id feh --bg-fill ~/Pictures/abstractneonwallpaper.jpg
-exec --no-startup-id feh --bg-fill ~/Pictures/wallhaven-r7kqxm.jpg
+# exec --no-startup-id feh --bg-fill ~/Pictures/wallhaven-r7kqxm.jpg
+exec --no-startup-id exec bash $HOME/.fehbg
 
 exec compton
 
