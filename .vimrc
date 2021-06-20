@@ -84,7 +84,6 @@ function! SetTabSize(n)
 endfunction
 command! -nargs=1 Tab call SetTabSize(<f-args>)
 
-
 function! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
