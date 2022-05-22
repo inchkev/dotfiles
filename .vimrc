@@ -3,24 +3,39 @@ filetype off
 filetype plugin indent on
 
 syntax on               " Syntax highlighting
+let tex_conceal = ""
 
 " vim-plug plugins
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin("~/.vim/plugged")
     Plug 'Valloric/YouCompleteMe'
     Plug 'octol/vim-cpp-enhanced-highlight'
+    " Plug 'lervag/vimtex'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'morhetz/gruvbox'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'Yggdroot/indentline'
     Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
+let g:ycm_show_diagnostics_ui = 0
+
 " General
 runtime macros/matchit.vim
 set backspace=indent,eol,start  " Proper backspace behavior
 set wildmenu            " Command-line completion
 set showcmd             " Show (partial) command at bottom of screen
-set mouse=a             " Enable using mouse
+set mouse+=a            " Enable using mouse
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 
 set number              " Show line number
 set ruler               " Show line and col num of cursor pos
@@ -51,7 +66,11 @@ set statusline+=%F
 " Editor colors
 set termguicolors       " Enable true colors support
 let ayucolor="dark"
-colorscheme ayu
+let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_contrast_light="soft"
+let g:gruvbox_italicize_strings=1
+" let g:gruvbox_invert_selection=0
+colorscheme gruvbox
 
 " Display whitespace
 set list
@@ -79,6 +98,17 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:cpp_class_scope_highlight = 1         " Highlight class scope
 let g:cpp_member_variable_highlight = 1     " Highlight member variables
 let g:cpp_class_decl_highlight = 1          " Highlight class names in declarations
+
+" netrw configs
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 12
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
 
 " Custom commands
 function! SetTabSize(n) abort
