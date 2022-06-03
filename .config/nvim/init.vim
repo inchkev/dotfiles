@@ -12,6 +12,13 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
+    Plug '/usr/share/fb-editor-support/nvim'
+
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'neovim/nvim-lspconfig'
+
     " Plug 'Valloric/YouCompleteMe'
     " Plug 'lervag/vimtex'
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -20,7 +27,7 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'Yggdroot/indentline'
-    Plug 'ctrlpvim/ctrlp.vim'
+    " Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 let g:ycm_show_diagnostics_ui = 0
