@@ -2,8 +2,9 @@
 filetype off
 filetype plugin indent on
 
-syntax on               " Syntax highlighting
-let tex_conceal = ""
+" Enable syntax highlighting
+syntax on
+let mapleader = " "
 
 " vim-plug plugins
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -11,16 +12,29 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-call plug#begin("~/.vim/plugged")
-    Plug 'Valloric/YouCompleteMe'
-    Plug 'octol/vim-cpp-enhanced-highlight'
-    " Plug 'lervag/vimtex'
-    Plug 'ayu-theme/ayu-vim'
-    Plug 'morhetz/gruvbox'
+call plug#begin()
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
+
+    Plug 'neovim/nvim-lspconfig'
+
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
-    Plug 'Yggdroot/indentline'
-    Plug 'ctrlpvim/ctrlp.vim'
+    " Plug 'Yggdroot/indentline'
+
+    Plug 'lukas-reineke/indent-blankline.nvim'
+
+    " TypeScript
+    Plug 'jose-elias-alvarez/typescript.nvim'
+
+    " Node
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " TreeSitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    " Plug 'ayu-theme/ayu-vim'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:ycm_show_diagnostics_ui = 0
@@ -31,13 +45,14 @@ set backspace=indent,eol,start  " Proper backspace behavior
 set wildmenu            " Command-line completion
 set showcmd             " Show (partial) command at bottom of screen
 set mouse+=a            " Enable using mouse
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
-end
+" if has("mouse_sgr")
+"     set ttymouse=sgr
+" else
+"     set ttymouse=xterm2
+" end
 
 set number              " Show line number
+set rnu                 " Show relative line number
 set ruler               " Show line and col num of cursor pos
 set showmatch           " Highlight matching brace
 
@@ -65,16 +80,28 @@ set statusline+=%F
 
 " Editor colors
 set termguicolors       " Enable true colors support
-let ayucolor="dark"
-let g:gruvbox_contrast_dark="soft"
-let g:gruvbox_contrast_light="soft"
-let g:gruvbox_italicize_strings=1
-" let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark = "medium"
+let g:gruvbox_contrast_light = "medium"
+" let g:gruvbox_italicize_strings=1
+let g:gruvbox_invert_selection=1
 colorscheme gruvbox
 
 " Display whitespace
 set list
 set listchars=tab:→\ ,nbsp:␣,trail:·,extends:⟩,precedes:⟨
+
+" IndentLine options
+lua require("indent_blankline").setup({show_current_context = true})
+
+" Telescope options
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Highlight .ejs files as .html
+au BufNewFile,BufRead *.ejs set filetype=html
 
 " Cursor shape
 if exists('$TMUX')
@@ -87,18 +114,6 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" IndentLine options
-let g:indentLine_setColors = 0
-
-" Ctrl-P options
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-" vim-cpp-enhanced-highlight option
-let g:cpp_class_scope_highlight = 1         " Highlight class scope
-let g:cpp_member_variable_highlight = 1     " Highlight member variables
-let g:cpp_class_decl_highlight = 1          " Highlight class names in declarations
-
 " netrw configs
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -109,6 +124,9 @@ let g:netrw_liststyle = 3
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
+
+" typescript configs
+lua require("typescript").setup({disable_commands=false})
 
 " Custom commands
 function! SetTabSize(n) abort
