@@ -172,6 +172,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "→  ", trail = "·", nbsp = "␣", extends = "⟩", precedes = "⟨" }
 vim.opt.signcolumn = "number"
 vim.opt.colorcolumn = { 80, 120 }
+vim.opt.breakindent = true
 
 vim.wo.wrap = false
 
