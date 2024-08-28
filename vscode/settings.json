@@ -1,0 +1,86 @@
+{
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.minimap.maxColumn": 60,
+    "editor.inlineSuggest.enabled": true,
+
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": false,
+
+    "editor.rulers": [
+        80, 120
+    ],
+    "editor.lineHeight": 1.25,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.showSlider": "always",
+    "editor.renderWhitespace": "trailing",
+    "editor.fontLigatures": false,
+
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "editor.fontFamily": "Fira Code Retina, Monaco, 'Courier New', monospace",
+    "editor.inlayHints.fontFamily": "Fira Sans Condensed",
+    "editor.inlayHints.padding": true,
+
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+        "editor.formatOnSave": true,
+        "editor.autoClosingBrackets": "never"
+    },
+    "rust-analyzer.rustfmt.extraArgs": [
+        "+nightly",
+        // "--config",
+        // "imports_layout=Vertical"
+    ],
+
+    "workbench.tips.enabled": false,
+    "workbench.tree.indent": 20,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.editor.wrapTabs": true,
+    "workbench.colorTheme": "Nathan's Gruvbox",
+    "workbench.colorCustomizations": {
+        "[Nathan's Gruvbox]": {
+            "tab.activeBorder": "#3c3836",
+            "tab.activeBackground": "#1d2021",
+            "activityBar.activeBorder": "#504945",
+            "activityBar.activeBackground": "#1d2021",
+            "titleBar.border": "#3c3836",
+            "sideBar.background": "#1d2021",
+            "statusBarItem.remoteBackground": "#504945",
+        }
+    },
+
+    "window.commandCenter": false,
+    "markdown-preview-github-styles.colorTheme": "light",
+    "editor.autoClosingBrackets": "never",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
+    "rust-analyzer.check.command": "clippy",
+    "markdown.preview.fontSize": 12,
+
+    "vim.easymotion": true,
+    "vim.leader": "space",
+    "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
+    // https://stackoverflow.com/questions/74755157/how-to-map-go-to-implementation-using-vscode-vim
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["g", "I"],
+            "commands": ["editor.action.goToImplementation"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["g", "I"],
+            "commands": ["editor.action.goToImplementation"]
+        }
+    ],
+    "html.autoClosingTags": false
+}

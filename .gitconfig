@@ -1,0 +1,14 @@
+[alias]
+    st = status -sb
+    s = st
+    di = diff
+    d = di
+    aa = add --all
+    co = checkout
+    cb = checkout -b
+    cm = commit -v
+    br = branch
+    b = br
+    bd = branch --delete --force
+    unstage = reset HEAD --
+    last = log -1 HEAD
