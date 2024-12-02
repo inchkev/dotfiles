@@ -1,87 +1,121 @@
 {
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
-    "editor.minimap.maxColumn": 60,
+    "editor.minimap.maxColumn": 40,
+    "editor.minimap.size": "proportional",
     "editor.inlineSuggest.enabled": true,
-
+    "editor.fontSize": 13,
+  
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": false,
-
-    "editor.rulers": [
-        80, 120
-    ],
+  
+    "editor.rulers": [80, 120],
     "editor.lineHeight": 1.25,
     "editor.minimap.renderCharacters": false,
     "editor.minimap.showSlider": "always",
     "editor.renderWhitespace": "trailing",
     "editor.fontLigatures": false,
-
+    "editor.autoClosingBrackets": "never",
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "fontStyle": ""
+          }
+        }
+      ]
+    },
+  
     "security.workspace.trust.untrustedFiles": "open",
-
+  
     "editor.fontFamily": "Fira Code Retina, Monaco, 'Courier New', monospace",
     "editor.inlayHints.fontFamily": "Fira Sans Condensed",
     "editor.inlayHints.padding": true,
-
-    "[rust]": {
-        "editor.defaultFormatter": "rust-lang.rust-analyzer",
-        "editor.formatOnSave": true,
-        "editor.autoClosingBrackets": "never"
-    },
-    "rust-analyzer.rustfmt.extraArgs": [
-        "+nightly",
-        // "--config",
-        // "imports_layout=Vertical"
-    ],
-
+  
+    "window.commandCenter": false,
     "workbench.tips.enabled": false,
     "workbench.tree.indent": 20,
     "workbench.tree.renderIndentGuides": "always",
     "workbench.editor.wrapTabs": true,
     "workbench.colorTheme": "Nathan's Gruvbox",
     "workbench.colorCustomizations": {
-        "[Nathan's Gruvbox]": {
-            "tab.activeBorder": "#3c3836",
-            "tab.activeBackground": "#1d2021",
-            "activityBar.activeBorder": "#504945",
-            "activityBar.activeBackground": "#1d2021",
-            "titleBar.border": "#3c3836",
-            "sideBar.background": "#1d2021",
-            "statusBarItem.remoteBackground": "#504945",
-        }
+      "[Nathan's Gruvbox]": {
+        "focusBorder": "#4d4846",
+        "activityBar.activeBorder": "#4d4846",
+        "activityBar.activeBackground": "#312f2e",
+        "activityBarBadge.background":"#282828",
+        "activityBar.background": "#3c3836",
+        "activityBar.border": "#4d4846",
+  
+        "editorGroup.border": "#4d4846",
+        "editorGroupHeader.tabsBorder": "#4d4846",
+        "editorRuler.foreground": "#a8998425",
+        "editorGroupHeader.tabsBackground": "#312f2e",
+        "list.hoverBackground": "#3c3836",
+        "list.activeSelectionBackground": "#28282890",
+        "list.inactiveSelectionBackground": "#282828",
+  
+        // let active tab merge
+        "tab.activeBorder": "#282828",
+        "tab.activeBackground": "#282828",
+        "tab.border": "#4d4846",
+        // inactive fade
+        "tab.inactiveBackground": "#312f2e",
+  
+        "titleBar.activeBackground": "#3c3836",
+        "titleBar.inactiveBackground": "#3c3836",
+        "titleBar.border": "#4d4846",
+  
+        "statusBar.background": "#3c3836",
+        "statusBarItem.remoteBackground": "#3c3836",
+        "statusBar.border": "#4d4846",
+  
+        "sideBar.background": "#312f2e",
+        "sideBar.border": "#4d4846",
+  
+        "menu.border":"#4d4846",
+        "panel.border":"#4d4846",
+      }
     },
-
-    "window.commandCenter": false,
+  
+    "markdown.preview.fontSize": 13,
     "markdown-preview-github-styles.colorTheme": "light",
-    "editor.autoClosingBrackets": "never",
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": "comment",
-                "settings": {
-                    "fontStyle": ""
-                }
-            }
-        ]
+  
+    // Rust
+    "[rust]": {
+      "editor.defaultFormatter": "rust-lang.rust-analyzer",
+      "editor.formatOnSave": true,
+      "editor.autoClosingBrackets": "never"
     },
     "rust-analyzer.check.command": "clippy",
-    "markdown.preview.fontSize": 12,
-
+  
+    // Typescript
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  
+    // Vim
     "vim.easymotion": true,
     "vim.leader": "space",
     "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
     // https://stackoverflow.com/questions/74755157/how-to-map-go-to-implementation-using-vscode-vim
     "vim.insertModeKeyBindings": [
-        {
-            "before": ["g", "I"],
-            "commands": ["editor.action.goToImplementation"]
-        }
+      {
+        "before": ["g", "I"],
+        "commands": ["editor.action.goToImplementation"]
+      }
     ],
     "vim.normalModeKeyBindings": [
-        {
-            "before": ["g", "I"],
-            "commands": ["editor.action.goToImplementation"]
-        }
+      {
+        "before": ["g", "I"],
+        "commands": ["editor.action.goToImplementation"]
+      }
     ],
     "vim.smartRelativeLine": true,
+  
     "html.autoClosingTags": false
-}
+  }
+  
