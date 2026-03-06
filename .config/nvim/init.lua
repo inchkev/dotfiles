@@ -201,3 +201,13 @@ vim.api.nvim_create_user_command("Tab",
     end,
     { nargs = 1 })
 
+-- Highlight text on yank
+local yank_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = yank_group,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
+  end,
+})
+
