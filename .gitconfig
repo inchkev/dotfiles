@@ -10,6 +10,7 @@
     co = "!f() { if [ $# -eq 0 ]; then git br-nocolor | sed '/\\*/d' | fzf --ansi --tac | awk '{print $NF}' | xargs git checkout; else git checkout \"$@\"; fi; }; f"
     cb = checkout -b
     cm = commit -v
+    ca = commit --amend --no-edit
     br = branch
     b = br
     # br = branch
