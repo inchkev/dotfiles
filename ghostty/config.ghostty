@@ -1,0 +1,13 @@
+theme = Gruvbox Dark
+
+font-family = Fira Code
+font-style = Regular
+font-style-bold = Regular
+font-size = 12
+font-thicken = true
+font-synthetic-style = false
+
+adjust-cell-width = "-7%"
+
+cursor-style = underline
+shell-integration-features = no-cursor

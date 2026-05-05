@@ -32,6 +32,10 @@
   "editor.inlayHints.fontFamily": "Fira Sans Condensed",
   "editor.inlayHints.padding": true,
 
+  "breadcrumbs.symbolPath": "last",
+  "breadcrumbs.icons": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+
   "window.commandCenter": false,
   "window.density.editorTabHeight": "compact",
 
@@ -45,7 +49,7 @@
       "focusBorder": "#4d4846",
       "activityBar.activeBorder": "#4d4846",
       "activityBar.activeBackground": "#312f2e",
-      "activityBarBadge.background": "#282828",
+      "activityBarBadge.background": "#928374",
       "activityBar.background": "#3c3836",
       "activityBar.border": "#4d4846",
 
@@ -110,7 +114,7 @@
   // Git
   //
   "git.blame.editorDecoration.enabled": true,
-  "git.blame.editorDecoration.template": "${authorName}, ${subject} (${authorDateAgo})",
+  "git.blame.editorDecoration.template": "${authorName}, ${authorDateAgo}: ${subject}",
 
   //
   // Markdown
